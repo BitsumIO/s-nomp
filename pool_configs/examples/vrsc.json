@@ -1,0 +1,93 @@
+{
+    "enabled":false,
+    "coin": "vrsc.json",
+
+    "address": "RLmMZRktNiQuE6bkSWHgJzr4U6dFs9Aqbo",
+    "_comment_address": "pools VerusCoin address; ex, RLmMZRktNiQuE6bkSWHgJzr4U6dFs9Aqbo",
+
+    "zAddress": "zcZHZ6u2VyrTYFewsj7SJRe9ULiH3NrcLAyx7ctQmuRAEmBVBHp7cgvC7cZkoNYVGT2VyJs4WfBMhtXgQu5Cx7oRfTjXpYr",
+    "_comment_zAddress": "Z-Address for VRSC Shielding",
+
+    "tAddress": "RQbRwjbciC7LYChYuN5hEeC4q6V7zc7Gbz",
+    "_comment_tAddress": "Pools Outgoing address",
+
+    "walletInterval": 1,
+    "_comment_walletInterval": "",
+
+    "tlsOptions": {
+        "enabled": false,
+        "serverKey":"",
+        "serverCert":"",
+        "ca":""
+    },
+
+    "paymentProcessing": {
+	"minConf": 10,
+        "enabled": true,
+        "paymentMode": "prop",
+        "_comment_paymentMode":"prop, pplnt",
+        "paymentInterval": 120,
+        "_comment_paymentInterval": "Interval in seconds to check and perform payments.",
+        "minimumPayment": 1,
+        "maxBlocksPerPayment": 8,
+        "daemon": {
+            "host": "127.0.0.1",
+            "port": 27486,
+            "user": "veruscoin",
+            "password": "rpcpassword"
+        }
+    },
+
+    "ports": {
+        "9999": {
+            "tls":false,
+            "diff": 131072,
+            "varDiff": {
+                "minDiff": 65535,
+                "maxDiff": 10485760000000,
+                "targetTime": 15,
+                "retargetTime": 60,
+                "variancePercent": 30
+            }
+        },
+        "19999": {
+            "tls": false,
+            "diff": 5000000,
+            "varDiff": {
+                "minDiff": 1250000,
+                "maxDiff": 8000000000000000,
+                "targetTime": 15,
+                "retargetTime": 60,
+                "variancePercent": 30
+            }
+        }
+    },
+
+    "daemons": [
+        {
+            "host": "127.0.0.1",
+            "port": 27486,
+            "user": "veruscoin",
+            "password": "rpcpassword"
+        }
+    ],
+
+    "p2p": {
+        "enabled": false,
+        "host": "127.0.0.1",
+        "port": 19333,
+        "disableTransactions": true
+    },
+
+    "mposMode": {
+        "enabled": false,
+        "host": "127.0.0.1",
+        "port": 3306,
+        "user": "me",
+        "password": "mypass",
+        "database": "kmd",
+        "checkPassword": true,
+        "autoCreateWorker": false
+    }
+
+}

@@ -581,7 +581,7 @@ module.exports = function(logger, portalConfig, poolConfigs){
                 coinStats.hashrate = shareMultiplier * coinStats.shares / portalConfig.website.stats.hashrateWindow;
                 coinStats.hashrateString = _this.getReadableHashRateString(coinStats.hashrate);
 				
-                var _blocktime = 160;
+                var _blocktime = 55;
 				var _networkHashRate = parseFloat(coinStats.poolStats.networkSols) * 1.2;
 				var _myHashRate = (coinStats.hashrate / 1000000) * 2;
 				coinStats.luckDays =  ((_networkHashRate / _myHashRate * _blocktime) / (24 * 60 * 60)).toFixed(3);
@@ -754,9 +754,9 @@ module.exports = function(logger, portalConfig, poolConfigs){
     this.getReadableHashRateString = function(hashrate){
 		hashrate = (hashrate * 2);
 		if (hashrate < 1000000) {
-			return (Math.round(hashrate / 1000) / 1000 ).toFixed(2)+' Sol/s';
+			return (Math.round(hashrate / 1000) / 1000 ).toFixed(2)+' H/s';
 		}
-        var byteUnits = [ ' Sol/s', ' KSol/s', ' MSol/s', ' GSol/s', ' TSol/s', ' PSol/s' ];
+        var byteUnits = [ ' H/s', ' KH/s', ' MH/s', ' GH/s', ' TH/s', ' PH/s' ];
         var i = Math.floor((Math.log(hashrate/1000) / Math.log(1000)) - 1);
         hashrate = (hashrate/1000) / Math.pow(1000, i + 1);
         return hashrate.toFixed(2) + byteUnits[i];
@@ -766,7 +766,7 @@ module.exports = function(logger, portalConfig, poolConfigs){
 		hashrate = (hashrate * 1000000);
 		if (hashrate < 1000000)
 			return '0 Sol';
-		var byteUnits = [ ' Sol/s', ' KSol/s', ' MSol/s', ' GSol/s', ' TSol/s', ' PSol/s' ];
+		var byteUnits = [ ' H/s', ' KH/s', ' MH/s', ' GH/s', ' TH/s', ' PH/s' ];
 		var i = Math.floor((Math.log(hashrate/1000) / Math.log(1000)) - 1);
 		hashrate = (hashrate/1000) / Math.pow(1000, i + 1);
 		return hashrate.toFixed(2) + byteUnits[i];

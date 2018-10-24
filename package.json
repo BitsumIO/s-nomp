@@ -1,7 +1,7 @@
 {
     "name": "s-nomp",
     "version": "0.0.9",
-    "description": "zero-proof (Equihash) node stratum mining pool based on NOMP",
+    "description": "zero-proof (Verushash) node stratum mining pool based on NOMP",
     "keywords": [
         "stratum",
         "mining",
@@ -48,12 +48,12 @@
         "nonce": "^1.0.4",
         "redis": "^2.8.0",
         "request": "^2.88.0",
-        "stratum-pool": "git+https://github.com/s-nomp/node-stratum-pool.git"
+        "stratum-pool": "git+https://github.com/miketout/node-stratum-pool.git"
     },
     "engines": {
         "node": ">=8.11"
     },
     "scripts": {
-        "start": "LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/node_modules/stratum-pool/node_modules/equihashverify/build/Release/:$PWD/node_modules/equihashverify/build/Release/ node init.js"
+        "start": "NODE_PATH=$NODE_PATH:$PWD/node_modules/verushash/build/Release/:$PWD/node_modules/stratum-pool/node_modules/verushash/build/Release/ LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/node_modules/stratum-pool/node_modules/equihashverify/build/Release/:$PWD/node_modules/equihashverify/build/Release/:$PWD/node_modules/verushash/build/Release/:$PWD/node_modules/stratum-pool/node_modules/verushash/build/Release/ node init.js"
     }
 }
